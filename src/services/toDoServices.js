@@ -52,6 +52,7 @@ export const getAllRecords = async () => {
     const response = await client.send(new ScanCommand({
       TableName: 'Tasks',
     }));
+    console.log(response)
     const items = response.Items.map(item => mapToDomainModel(item));
     return items;
   } catch (e) {

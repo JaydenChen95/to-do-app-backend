@@ -15,8 +15,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "build": "esbuild src/app.js --bundle --platform=node --format=esm --outfile=dist/app.js --packages=external",
     "lint": "npx eslint .",
     "lint-fix": "npx eslint . --fix",
     "test": "vitest"
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@eslint/js": "^9.25.1",
     "@jest/globals": "^29.7.0",
+    "esbuild": "^0.25.3",
     "eslint": "^9.25.1",
     "globals": "^16.0.0",
     "jest": "^29.7.0",
