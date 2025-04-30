@@ -16,10 +16,12 @@ export function validate({
   }
 
   if(subTasks){
-    const subTaskWithNoStatus = subTasks.find(subTask => !subTask.status 
+    const subTaskWithNoStatus = subTasks.find(subTask => 
+      !subTask.status 
+        || !subTask.description
         || !validateStatus(subTask.status));
     if(subTaskWithNoStatus){
-      console.error('Subtask must have a valid status');
+      console.error('Subtask must have a valid description and status');
       return false;
     }
   }

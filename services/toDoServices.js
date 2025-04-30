@@ -82,6 +82,7 @@ const mapToDynamo = (task) => {
     Status: task.status,
     SubTasks: task.subTasks.map(subTask => {
       return {
+        Description: subTask.description,
         DueDate: subTask.dueDate,
         Priority: subTask.priority,
         Status: subTask.status,
@@ -97,6 +98,7 @@ const mapToDynamo = (task) => {
 const mapToDomainModel = (dynamoModel) => {
   const subTasks = dynamoModel.SubTasks.map(subTask => {
     return {
+      description: subTask.Description,
       dueDate: subTask.DueDate,
       priority: subTask.Priority,
       status: subTask.Status,
