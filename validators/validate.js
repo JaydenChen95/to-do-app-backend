@@ -1,4 +1,4 @@
-const allowedStatus = ['Uncompleted', 'Completed', 'Pending'];
+const allowedStatus = ['Uncompleted', 'Completed', 'Pending', 'Deleted'];
 
 export function validate({
   description,
@@ -16,11 +16,11 @@ export function validate({
   }
 
   if(subTasks){
-    const subTaskWithNoStatus = subTasks.find(subTask => 
+    const invalidSubtask = subTasks.find(subTask => 
       !subTask.status 
         || !subTask.description
         || !validateStatus(subTask.status));
-    if(subTaskWithNoStatus){
+    if(invalidSubtask){
       console.error('Subtask must have a valid description and status');
       return false;
     }

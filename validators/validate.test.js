@@ -6,6 +6,7 @@ describe('validateStatus', () => {
     expect(validateStatus('Uncompleted')).toBe(true);
     expect(validateStatus('Completed')).toBe(true);
     expect(validateStatus('Pending')).toBe(true);
+    expect(validateStatus('Deleted')).toBe(true);
   });
 
   it('returns false for invalid status', () => {
