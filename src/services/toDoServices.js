@@ -5,7 +5,7 @@ import {
   ScanCommand, 
 } from '@aws-sdk/lib-dynamodb';
 import { getDocumentClient } from '../clients/dynamoClient.js';
-import { Task } from '../models/task.js';
+import { Task } from '../models/Task.js';
 
 const client = getDocumentClient();
 

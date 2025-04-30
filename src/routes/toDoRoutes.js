@@ -1,5 +1,5 @@
 import Router from '@koa/router';
-import { Task } from '../models/task.js';
+import { Task } from '../models/Task.js';
 import { getAllRecords, getRecordById, putRecord, updateRecord } from '../services/toDoServices.js';
 import { validate, validateStatus } from '../validators/validate.js';
 
