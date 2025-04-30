@@ -13,7 +13,7 @@ export const putRecord = async (task) => {
   const item = mapToDynamo(task);
 
   try {
-    const response = await client.send(new PutCommand({
+    await client.send(new PutCommand({
       TableName: 'Tasks',
       Item: item,
     }));

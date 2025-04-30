@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 
-import router from './routes/toDoRoutes.js'
+import router from './routes/toDoRoutes.js';
 
 const app = new Koa();
 app.use(bodyParser());

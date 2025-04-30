@@ -5,7 +5,7 @@ export class Task {
     // add validation
     this.id = id || uuid();
     this.description = description;
-    this.status = status || 'Uncompleted';
+    this.status = status;
     this.subTasks = subTasks || [];
     this.dueDate = dueDate || null;
     this.priority = priority || null;

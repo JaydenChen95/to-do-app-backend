@@ -1,6 +1,7 @@
 import Router from '@koa/router';
 import { Task } from '../models/task.js';
 import { getAllRecords, getRecordById, putRecord, updateRecord } from '../services/toDoServices.js';
+import { validate, validateStatus } from '../validators/validate.js';
 
 const router = new Router();
 
@@ -19,6 +20,12 @@ router.get('/to-do/:id', async (ctx) => {
 });
   
 router.post('/to-do', async (ctx) => {
+  const isValid = validate(ctx.request.body);
+  if(!isValid){
+    ctx.body = 'Invalid request';
+    ctx.status = 400;
+    return;
+  }
   const { description, status, subTasks, dueDate, priority, category } = ctx.request.body;
   
   const task = new Task({
@@ -36,6 +43,13 @@ router.post('/to-do', async (ctx) => {
   
 router.put('/to-do/:id', async (ctx) => {
   const { id } = ctx.params;
+
+  const isValid = validate(ctx.request.body);
+  if(!isValid){
+    ctx.body = 'Invalid request';
+    ctx.status = 400;
+    return;
+  }
   const { description, status, subTasks, dueDate, priority, category, createdAt } = ctx.request.body;
   
   const task = new Task({ 
@@ -56,6 +70,13 @@ router.put('/to-do/:id', async (ctx) => {
 router.patch('/to-do/:id', async (ctx) => {
   const { id } = ctx.params;
   const { status } = ctx.request.body;
+  const validStatus = validateStatus(status);
+
+  if(!validStatus){
+    ctx.body = 'Invalid status';
+    ctx.status = 400;
+    return;
+  }
     
   ctx.body = await updateRecord(id, status);
   ctx.status = 200;
