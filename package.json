@@ -1,16 +1,37 @@
 {
   "name": "to-do-app-backend",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Backend for todo app",
+  "homepage": "https://github.com/JaydenChen95/to-do-app-backend#readme",
+  "bugs": {
+    "url": "https://github.com/JaydenChen95/to-do-app-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaydenChen95/to-do-app-backend.git"
+  },
+  "license": "ISC",
+  "author": "Jianyong",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint .",
+    "lint-fix": "npx eslint . --fix"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "@aws-sdk/client-dynamodb": "^3.798.0",
+    "@aws-sdk/lib-dynamodb": "^3.798.0",
+    "@koa/router": "^13.1.0",
+    "koa": "^3.0.0",
+    "koa-bodyparser": "^4.4.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "eslint": "^9.25.1",
+    "globals": "^16.0.0",
+    "nodemon": "^3.1.10"
   }
 }
